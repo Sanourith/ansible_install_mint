@@ -2,8 +2,8 @@
   become: true
   roles:
     - prerequisites
-    # - softwares
-    # - consols
+    - softwares
+    - consols
     # - vscode
     # - webstorm
 
