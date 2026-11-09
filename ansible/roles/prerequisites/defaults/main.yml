@@ -4,6 +4,7 @@ bashrc_aliases:
   - { guard: "alias update=", line: "alias update='sudo apt update && sudo apt upgrade -y'" }
   - { guard: "alias python=", line: "alias python=python3" }
   - { guard: "alias k=", line: 'alias k="kubectl"' }
+  - { guard: "alias stop_wallpp=", line: 'alias stop_wallpp="pkill -f wallpapers-changer.sh"' }
 
 network_target_speed: 2500
 
