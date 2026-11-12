@@ -4,7 +4,17 @@ bashrc_aliases:
   - { guard: "alias update=", line: "alias update='sudo apt update && sudo apt upgrade -y'" }
   - { guard: "alias python=", line: "alias python=python3" }
   - { guard: "alias k=", line: 'alias k="kubectl"' }
-  - { guard: "alias stop_wallpp=", line: 'alias stop_wallpp="pkill -f wallpapers-changer.sh"' }
+  - { guard: "alias wallpp=", line: 'alias wallpp="reset_wallpp"' }
+
+bashrc_functions:
+  - name: reset_wallpp
+    content: |
+      reset_wallpp() {
+          pkill -f '[z]_wallpapers-changer.sh'
+          sleep 1
+          nohup /bin/bash /home/psowl/work/ansible_install_mint/z_wallpapers-changer.sh >/dev/null 2>&1 &
+          echo "Wallpaper changer restarted (PID: $!)"
+      }
 
 network_target_speed: 2500
 

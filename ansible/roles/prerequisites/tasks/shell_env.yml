@@ -15,6 +15,16 @@
   loop: "{{ bashrc_aliases }}"
   loop_control:
     label: "{{ item.guard }}"
+
+- name: Adding functions to .bashrc file
+  ansible.builtin.blockinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    marker: "# {mark} ANSIBLE MANAGED FUNCTION {{ item.name }}"
+    block: "{{ item.content }}"
+    state: present
+  loop: "{{ bashrc_functions }}"
+  loop_control:
+    label: "{{ item.name }}"
 ################################################################################
 
 # SIZE TERMINAL
